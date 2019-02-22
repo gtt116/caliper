@@ -1066,7 +1066,7 @@ async function invokebycontext(context, id, version, args, timeout){
                 //invokeStatus.Set('invokeLatency', (Date.now() - beforeInvokeTime));
                 one_good = true;
             } else {
-                let err = new Error('Endorsement denied: ' + proposal_response.toString());
+                let err = new Error('Endorsement denied: ' + JSON.stringify(proposal_response.toString()));
                 errFlag |= TxErrorEnum.BadProposalResponseError;
                 invokeStatus.SetFlag(errFlag);
                 invokeStatus.SetErrMsg(TxErrorIndex.BadProposalResponseError, err.toString());
